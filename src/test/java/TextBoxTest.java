@@ -12,6 +12,7 @@ public class TextBoxTest {
     static void beforeAll(){
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @Test
@@ -23,10 +24,10 @@ public class TextBoxTest {
         $("#permanentAddress").setValue("USA, Texas");
         $("#submit").click();
 
-        $("#output").$("#name").shouldHave(text("Deez Nuts"));
-        $("#output").$("#email").shouldHave(text("scoobydoo@mail.ru"));
-        $("#output").$("#currentAddress").shouldHave(text("USA, CA, Beverly Hills, 90210"));
-        $("#output").$("#permanentAddress").shouldHave(text("USA, Texas"));
+        $("#output #name").shouldHave(text("Deez Nuts"));
+        $("#output #email").shouldHave(text("scoobydoo@mail.ru"));
+        $("#output #currentAddress").shouldHave(text("USA, CA, Beverly Hills, 90210"));
+        $("#output #permanentAddress").shouldHave(text("USA, Texas"));
 
     }
 }
