@@ -7,17 +7,22 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticeForm {
+public class AutomationPracticeForm
+{
 
     @BeforeAll
-    static void beforeAll(){
+    static void beforeAll()
+    {
+
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
+
     }
 
     @Test
-    void fillFormTest() {
+    void fillFormTest()
+    {
 
         open("/automation-practice-form");
         $("#firstName").setValue("Deez");
@@ -41,6 +46,7 @@ public class AutomationPracticeForm {
         $(new ByText("Haryana")).click();
         $("#city").click();
         $(new ByText("Karnal")).click();
+
         $("#submit").click();
 
         $(By.className("table-responsive")).shouldHave(text("Deez Nuts"));
@@ -57,5 +63,4 @@ public class AutomationPracticeForm {
         $("#closeLargeModal").click();
 
     }
-
 }
