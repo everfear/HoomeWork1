@@ -44,15 +44,18 @@ public class AutomationPracticeForm {
         $(new ByText("Karnal")).click();
         $("#submit").click();
 
+        $("#modal-content #Student Name").shouldHave(text("Deez Nuts"));
+        $("#modal-content #Student Email").shouldHave(text("scoobydoo@mail.ru"));
+        $("#modal-content #Gender").shouldHave(text("Other"));
+        $("#modal-content #Mobile").shouldHave(text("8974590871"));
+        $("#modal-content #Date of Birth").shouldHave(text("17 July,1913"));
+        $("#modal-content #Subjects").shouldHave(text("Biology"));
+        $("#modal-content #Hobbies").shouldHave(text("Sports, Reading"));
+        $("#modal-content #Picture").shouldHave(text("cat.webp"));
+        $("#modal-content #Address").shouldHave(text("USA, CA, Beverly Hills, 90210"));
+        $("#modal-content #State and City").shouldHave(text("Haryana Karnal"));
 
-        $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
-        $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
-        $("#submit").click();
-
-        $("#output #name").shouldHave(text("Deez Nuts"));
-        $("#output #email").shouldHave(text("scoobydoo@mail.ru"));
-        $("#output #currentAddress").shouldHave(text("USA, CA, Beverly Hills, 90210"));
-        $("#output #permanentAddress").shouldHave(text("USA, Texas"));
+        $("#closeLargeModal").click();
 
     }
 
