@@ -34,8 +34,15 @@ public class AutomationPracticeForm {
         $("#subjectsInput").type("Biology").pressEnter();
         $(new ByText("Sports")).click();
         $(new ByText("Reading")).click();
+        $(By.className("form-file-label")).click();
+
+
         $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
         $("#state").click();
+        $(new ByText("Haryana")).click();
+        $("#city").click();
+        $(new ByText("Karnal")).click();
+
 
 
         $(By.cssSelector("react-datepicker__day react-datepicker__day--017")).click();
