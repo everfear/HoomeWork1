@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -34,18 +36,14 @@ public class AutomationPracticeForm {
         $("#subjectsInput").type("Biology").pressEnter();
         $(new ByText("Sports")).click();
         $(new ByText("Reading")).click();
-        $(By.className("form-file-label")).click();
-
-
+        $(By.className("form-control-file")).uploadFile(new File("src/test/cat.webp"));
         $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
         $("#state").click();
         $(new ByText("Haryana")).click();
         $("#city").click();
         $(new ByText("Karnal")).click();
+        $("#submit").click();
 
-
-
-        $(By.cssSelector("react-datepicker__day react-datepicker__day--017")).click();
 
         $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
         $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
