@@ -44,16 +44,16 @@ public class AutomationPracticeForm {
         $(new ByText("Karnal")).click();
         $("#submit").click();
 
-        $("#modal-content #Student Name").shouldHave(text("Deez Nuts"));
-        $("#modal-content #Student Email").shouldHave(text("scoobydoo@mail.ru"));
-        $("#modal-content #Gender").shouldHave(text("Other"));
-        $("#modal-content #Mobile").shouldHave(text("8974590871"));
-        $("#modal-content #Date of Birth").shouldHave(text("17 July,1913"));
-        $("#modal-content #Subjects").shouldHave(text("Biology"));
-        $("#modal-content #Hobbies").shouldHave(text("Sports, Reading"));
-        $("#modal-content #Picture").shouldHave(text("cat.webp"));
-        $("#modal-content #Address").shouldHave(text("USA, CA, Beverly Hills, 90210"));
-        $("#modal-content #State and City").shouldHave(text("Haryana Karnal"));
+        $(By.className("table-responsive")).shouldHave(text("Deez Nuts"));
+        $(By.className("table-responsive")).shouldHave(text("scoobydoo@mail.ru"));
+        $(By.className("table-responsive")).shouldHave(text("Other"));
+        $(By.className("table-responsive")).shouldHave(text("8974590871"));
+        $(By.className("table-responsive")).shouldHave(text("17 July,1913"));
+        $(By.className("table-responsive")).shouldHave(text("Biology"));
+        $(By.className("table-responsive")).shouldHave(text("Sports, Reading"));
+        $(By.className("table-responsive")).shouldHave(text("cat.webp"));
+        $(By.className("table-responsive")).shouldHave(text("USA, CA, Beverly Hills, 90210"));
+        $(By.className("table-responsive")).shouldHave(text("Haryana Karnal"));
 
         $("#closeLargeModal").click();
 
