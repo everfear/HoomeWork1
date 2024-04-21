@@ -1,14 +1,14 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import java.io.File;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class AutomationPracticeForm
+public class AutomationPracticeFormTest
 {
 
     @BeforeAll
@@ -19,6 +19,7 @@ public class AutomationPracticeForm
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
 
+
     }
 
     @Test
@@ -26,6 +27,9 @@ public class AutomationPracticeForm
     {
 
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
         $("#firstName").setValue("Deez");
         $("#lastName").setValue("Nuts");
         $("#userEmail").setValue("scoobydoo@mail.ru");
@@ -36,17 +40,17 @@ public class AutomationPracticeForm
         $(By.className("react-datepicker__month-select")).selectOption("July");
         $(By.className("react-datepicker__year-select")).click();
         $(By.className("react-datepicker__year-select")).selectOption("1913");
-        $(new ByText("17")).click();
+        $(byText("17")).click();
         $("#subjectsContainer").click();
         $("#subjectsInput").type("Biology").pressEnter();
-        $(new ByText("Sports")).click();
-        $(new ByText("Reading")).click();
-        $(By.className("form-control-file")).uploadFile(new File("src/test/cat.webp"));
+        $(byText("Sports")).click();
+        $(byText("Reading")).click();
+        $("#uploadPicture").uploadFromClasspath("cat.webp");
         $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
         $("#state").click();
-        $(new ByText("Haryana")).click();
+        $(byText("Haryana")).click();
         $("#city").click();
-        $(new ByText("Karnal")).click();
+        $(byText("Karnal")).click();
 
         $("#submit").click();
 
