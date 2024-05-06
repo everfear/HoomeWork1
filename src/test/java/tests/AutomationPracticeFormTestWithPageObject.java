@@ -18,7 +18,7 @@ public class AutomationPracticeFormTestWithPageObject extends TestBase
     void fillFormTestWithPageObject()
     {
 
-        AutomationPracticeFormTestWithPageObject.openPage()
+        automationPracticeFormTestPage.openPage()
                 .setFirstName("Alex")
                 .setLastName("Egorov")
                 .setEmail("alex@egorov.com")
@@ -40,7 +40,7 @@ public class AutomationPracticeFormTestWithPageObject extends TestBase
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
                 text("alex@egorov.com"), text("1234567890"));
-        AutomationPracticeFormTestWithPageObject.checkResult("Student Name", "Alex Egorov")
+        automationPracticeFormTestPage.checkResult("Student Name", "Alex Egorov")
                 .checkResult("Student Email", "alex@egorov.com");
 
     }
