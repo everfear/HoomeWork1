@@ -1,73 +1,47 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
+import pages.AutomationPracticeFormTestPage;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class AutomationPracticeFormTestWithPageObject
+public class AutomationPracticeFormTestWithPageObject extends TestBase
 {
 
-    @BeforeAll
-    static void beforeAll()
-    {
-
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-
-
-    }
+    AutomationPracticeFormTestPage automationPracticeFormTestPage = new AutomationPracticeFormTestPage();
 
     @Test
-    void fillFormTest()
+    void fillFormTestWithPageObject()
     {
 
-        open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        AutomationPracticeFormTestWithPageObject.openPage()
+                .setFirstName("Alex")
+                .setLastName("Egorov")
+                .setEmail("alex@egorov.com")
+                .setGender("Other")
+                .setUserNumber("1234567890")
+                .setDateOfBirth("30", "July", "2008");
 
-        $("#firstName").setValue("Deez");
-        $("#lastName").setValue("Nuts");
-        $("#userEmail").setValue("scoobydoo@mail.ru");
-        $("#gender-radio-3").doubleClick();
-        $("#userNumber").setValue("8974590871");
-        $("#dateOfBirthInput").click();
-        $(By.className("react-datepicker__month-select")).click();
-        $(By.className("react-datepicker__month-select")).selectOption("July");
-        $(By.className("react-datepicker__year-select")).click();
-        $(By.className("react-datepicker__year-select")).selectOption("1913");
-        $(byText("17")).click();
-        $("#subjectsContainer").click();
-        $("#subjecAutomationPracticeFormTesttsInput").type("Biology").pressEnter();
-        $(byText("Sports")).click();
-        $(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("cat.webp");
-        $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
+        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        $("#currentAddress").setValue("Some address 1");
         $("#state").click();
-        $(byText("Haryana")).click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
-        $(byText("Karnal")).click();
-
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
-        $(By.className("table-responsive")).shouldHave(text("Deez Nuts"));
-        $(By.className("table-responsive")).shouldHave(text("scoobydoo@mail.ru"));
-        $(By.className("table-responsive")).shouldHave(text("Other"));
-        $(By.className("table-responsive")).shouldHave(text("8974590871"));
-        $(By.className("table-responsive")).shouldHave(text("17 July,1913"));
-        $(By.className("table-responsive")).shouldHave(text("Biology"));
-        $(By.className("table-responsive")).shouldHave(text("Sports, Reading"));
-        $(By.className("table-responsive")).shouldHave(text("cat.webp"));
-        $(By.className("table-responsive")).shouldHave(text("USA, CA, Beverly Hills, 90210"));
-        $(By.className("table-responsive")).shouldHave(text("Haryana Karnal"));
-
-        $("#closeLargeModal").click();
+        $(".modal-dialog").should(appear);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
+                text("alex@egorov.com"), text("1234567890"));
+        AutomationPracticeFormTestWithPageObject.checkResult("Student Name", "Alex Egorov")
+                .checkResult("Student Email", "alex@egorov.com");
 
     }
 }
