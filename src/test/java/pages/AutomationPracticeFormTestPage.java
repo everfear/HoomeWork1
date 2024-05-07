@@ -1,8 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CalendarComponent;
-import pages.components.SubjectsComponent;
+import pages.components.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -27,13 +26,18 @@ public class AutomationPracticeFormTestPage
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genderWrapper = $("#genterWrapper"),
+            genderInput = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
             calendarInput = $("#dateOfBirthInput"),
-            subjectsInput = $("#subjectsContainer");
+            subjectsInput = $("#subjectsInput"),
+            hobbiesInput = $("#hobbiesWrapper"),
+            setPicture = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            submitClick = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    SubjectsComponent subjectsComponent = new SubjectsComponent();
+    StateComponent stateComponent = new StateComponent();
+    CityComponent cityComponent = new CityComponent();
 
     public AutomationPracticeFormTestPage setFirstName(String value)
     {
@@ -62,7 +66,7 @@ public class AutomationPracticeFormTestPage
     public AutomationPracticeFormTestPage setGender(String value)
     {
 
-        genderWrapper.$(byText(value)).click();
+        genderInput.$(byText(value)).click();
         return this;
 
     }
@@ -84,11 +88,59 @@ public class AutomationPracticeFormTestPage
 
     }
 
-    public AutomationPracticeFormTestPage setSubjects(String subjectOption)
+    public AutomationPracticeFormTestPage setSubjects(String value)
     {
 
-        subjectsInput.click();
-        subjectsComponent.setSubject(subjectOption);
+        subjectsInput.setValue(value).pressEnter();
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage setHobbies(String value)
+    {
+
+        hobbiesInput.$(byText(value)).click();
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage setPicture(String value)
+    {
+
+        setPicture.uploadFromClasspath(value);
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage setCurrentAddress(String value)
+    {
+
+        addressInput.setValue(value);
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage setState(String value)
+    {
+
+        stateComponent.setState(value);
+        return this;
+
+    }
+
+
+    public AutomationPracticeFormTestPage setCity(String value)
+    {
+
+        cityComponent.setCity(value);
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage submit()
+    {
+        submitClick.scrollIntoView(true);
+        submitClick.click();
         return this;
 
     }

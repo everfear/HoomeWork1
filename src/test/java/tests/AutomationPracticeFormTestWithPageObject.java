@@ -25,16 +25,20 @@ public class AutomationPracticeFormTestWithPageObject extends TestBase
                 .setGender("Other")
                 .setUserNumber("8974590871")
                 .setDateOfBirth("17", "July", "1913")
-                .setSubjects("Biology");
+                .setSubjects("Biology")
+                .setHobbies("Reading")
+                .setPicture("cat.webp")
+                .setCurrentAddress("USA, CA, Beverly Hills, 90210")
+                .setState("Haryana")
+                .setCity("Karnal")
+                .submit();
 
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("cat.webp");
-        $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("Haryana")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Karnal")).click();
-        $("#submit").click();
+
+//        $("#state").click();
+//        $("#stateCity-wrapper").$(byText("Haryana")).click();
+//        $("#city").click();
+//        $("#stateCity-wrapper").$(byText("Karnal")).click();
+//        $("#submit").click();
 
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
