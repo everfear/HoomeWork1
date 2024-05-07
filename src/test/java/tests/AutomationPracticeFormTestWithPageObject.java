@@ -19,29 +19,30 @@ public class AutomationPracticeFormTestWithPageObject extends TestBase
     {
 
         automationPracticeFormTestPage.openPage()
-                .setFirstName("Alex")
-                .setLastName("Egorov")
-                .setEmail("alex@egorov.com")
+                .setFirstName("Deez")
+                .setLastName("Nuts")
+                .setEmail("scoobydoo@mail.ru")
                 .setGender("Other")
-                .setUserNumber("1234567890")
-                .setDateOfBirth("30", "July", "2008");
+                .setUserNumber("8974590871")
+                .setDateOfBirth("17", "July", "1913")
+                .setSubjects("Biology");
 
-        $("#subjectsInput").setValue("Math").pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
-        $("#currentAddress").setValue("Some address 1");
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#uploadPicture").uploadFromClasspath("cat.webp");
+        $("#currentAddress").setValue("USA, CA, Beverly Hills, 90210");
         $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
 
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
-                text("alex@egorov.com"), text("1234567890"));
-        automationPracticeFormTestPage.checkResult("Student Name", "Alex Egorov")
-                .checkResult("Student Email", "alex@egorov.com");
+        $(".table-responsive").shouldHave(text("Deez"), text("Nuts"),
+                text("scoobydoo@mail.ru"), text("8974590871"));
+
+        automationPracticeFormTestPage.checkResult("Student Name", "Deez Nuts")
+                .checkResult("Student Email", "scoobydoo@mail.ru");
 
     }
 }
