@@ -41,4 +41,35 @@ public class AutomationPracticeFormTestWithPageObject extends TestBase
                 .checkResult("State and City", "Haryana Karnal");
 
     }
+
+    @Test
+    void OnlyRequiredfillFormTestWithPageObject()
+    {
+
+                automationPracticeFormTestPage.openPage()
+
+                .setFirstName("Deez")
+                .setLastName("Nuts")
+                .setGender("Other")
+                .setUserNumber("8974590871")
+
+                .submit()
+
+                .checkResult("Student Name", "Deez Nuts")
+                .checkResult("Gender", "Other")
+                .checkResult("Mobile", "8974590871");
+
+    }
+
+    @Test
+    void EmptyfillFormTestWithPageObject()
+    {
+
+                automationPracticeFormTestPage.openPage()
+
+                .submit()
+
+                .checkValidation();
+
+    }
 }

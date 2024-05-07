@@ -3,7 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.*;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -34,7 +34,8 @@ public class AutomationPracticeFormTestPage
             setPicture = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             submitClick = $("#submit"),
-            outputTable = $(".table-responsive");
+            outputTable = $(".table-responsive"),
+            userForm = $("#userForm");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     StateComponent stateComponent = new StateComponent();
@@ -151,6 +152,26 @@ public class AutomationPracticeFormTestPage
     {
 
         outputTable.$(byText(key)).parent().shouldHave(text(value));
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage checkFormControl()
+    {
+
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        return this;
+
+    }
+
+    public AutomationPracticeFormTestPage checkValidation()
+    {
+
+        userForm.shouldHave(cssClass("was-validated"));
+        firstNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
+        lastNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
+        userNumberInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
+        outputTable.shouldNotBe(visible);
         return this;
 
     }
