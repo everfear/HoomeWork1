@@ -23,6 +23,7 @@ public class AutomationPracticeFormTestPage
     }
 
     private SelenideElement
+
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
