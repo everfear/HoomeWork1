@@ -15,9 +15,9 @@ public class AutomationPracticeFormTestPage
     {
 
         open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         return this;
 
     }
@@ -157,16 +157,9 @@ public class AutomationPracticeFormTestPage
 
     }
 
-    public AutomationPracticeFormTestPage checkFormControl()
-    {
-
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        return this;
-
-    }
-
     public AutomationPracticeFormTestPage checkValidation()
     {
+        //NegativefillFormTestWithPageObject
 
         userForm.shouldHave(cssClass("was-validated"));
         firstNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));

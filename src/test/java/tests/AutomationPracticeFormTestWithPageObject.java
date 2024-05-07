@@ -62,7 +62,7 @@ public class AutomationPracticeFormTestWithPageObject extends TestBase
     }
 
     @Test
-    void EmptyfillFormTestWithPageObject()
+    void NegativefillFormTestWithPageObject()
     {
 
                 automationPracticeFormTestPage.openPage()
