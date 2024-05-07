@@ -33,7 +33,8 @@ public class AutomationPracticeFormTestPage
             hobbiesInput = $("#hobbiesWrapper"),
             setPicture = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
-            submitClick = $("#submit");
+            submitClick = $("#submit"),
+            outputTable = $(".table-responsive");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     StateComponent stateComponent = new StateComponent();
@@ -139,6 +140,7 @@ public class AutomationPracticeFormTestPage
 
     public AutomationPracticeFormTestPage submit()
     {
+
         submitClick.scrollIntoView(true);
         submitClick.click();
         return this;
@@ -148,8 +150,7 @@ public class AutomationPracticeFormTestPage
     public AutomationPracticeFormTestPage checkResult(String key, String value)
     {
 
-        $(".table-responsive").$(byText(key)).parent()
-                .shouldHave(text(value));
+        outputTable.$(byText(key)).parent().shouldHave(text(value));
         return this;
 
     }

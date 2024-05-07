@@ -9,7 +9,7 @@ public class CityComponent
     public void setCity(String value)
     {
 
-        $("#state").click();
+        $("#city").click();
         $("#stateCity-wrapper").$(byText(value)).click();
 
     }
