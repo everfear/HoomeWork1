@@ -8,14 +8,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class TextBoxPage
 {
 
-    private SelenideElement
-
-            userNameInput = $("#userName"),
-            submitButton = $("#submit"),
-            emailInput = $("#userEmail"),
-            currentAddressInput = $("#currentAddress"),
-            permanentAddressInput = $("#permanentAddress");
-
     public TextBoxPage openPage()
     {
 
@@ -25,6 +17,14 @@ public class TextBoxPage
         return this;
 
     }
+
+    private SelenideElement
+
+            userNameInput = $("#userName"),
+            submitButton = $("#submit"),
+            emailInput = $("#userEmail"),
+            currentAddressInput = $("#currentAddress"),
+            permanentAddressInput = $("#permanentAddress");
 
     public TextBoxPage setUserName(String value)
     {
