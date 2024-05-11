@@ -1,12 +1,12 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.AutomationPracticeFormTestPage;
+import pages.AutomationPracticeFormTestPageWithFaker;
 
 public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase
 {
 
-    AutomationPracticeFormTestPage automationPracticeFormTestPage = new AutomationPracticeFormTestPage();
+    AutomationPracticeFormTestPageWithFaker automationPracticeFormTestPage = new AutomationPracticeFormTestPageWithFaker();
 
     @Test
     void fillFormTestWithPageObject()
@@ -14,31 +14,31 @@ public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase
 
                 automationPracticeFormTestPage.openPage()
 
-                .setFirstName("Deez")
-                .setLastName("Nuts")
-                .setEmail("scoobydoo@mail.ru")
-                .setGender("Other")
-                .setUserNumber("8974590871")
-                .setDateOfBirth("30", "May", "1915")
-                .setSubjects("Biology")
-                .setHobbies("Reading")
-                .setPicture("cat.webp")
-                .setCurrentAddress("USA, CA, Beverly Hills, 90210")
-                .setState("Haryana")
-                .setCity("Karnal")
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setEmail(data.email)
+                .setGender(data.gender)
+                .setUserNumber(data.userNumber)
+                .setDateOfBirth(data.userBirthDay, data.userBirthMonth, data.userBirthYear)
+                .setSubjects(data.subject)
+                .setHobbies(data.hobby)
+                .setPicture(data.picture)
+                .setCurrentAddress(data.currentAddress)
+                .setState(data.state)
+                .setCity(data.city)
 
                 .submit()
 
-                .checkResult("Student Name", "Deez Nuts")
-                .checkResult("Student Email", "scoobydoo@mail.ru")
-                .checkResult("Gender", "Other")
-                .checkResult("Mobile", "8974590871")
-                .checkResult("Date of Birth", "30 May,1915")
-                .checkResult("Subjects", "Biology")
-                .checkResult("Hobbies", "Reading")
-                .checkResult("Picture", "cat.webp")
-                .checkResult("Address", "USA, CA, Beverly Hills, 90210")
-                .checkResult("State and City", "Haryana Karnal");
+                .checkResult("Student Name", data.firstName + " " + data.lastName)
+                .checkResult("Student Email", data.email)
+                .checkResult("Gender", data.gender)
+                .checkResult("Mobile", data.userNumber)
+                .checkResult("Date of Birth", data.userBirthDay + " " + data.userBirthMonth + "," + data.userBirthYear)
+                .checkResult("Subjects", data.subject)
+                .checkResult("Hobbies", data.hobby)
+                .checkResult("Picture", data.picture)
+                .checkResult("Address", data.currentAddress)
+                .checkResult("State and City", data.state + " " + data.city);
 
     }
 
@@ -48,16 +48,16 @@ public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase
 
         automationPracticeFormTestPage.openPage()
 
-                .setFirstName("Deez")
-                .setLastName("Nuts")
-                .setGender("Other")
-                .setUserNumber("8974590871")
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setGender(data.gender)
+                .setUserNumber(data.userNumber)
 
                 .submit()
 
-                .checkResult("Student Name", "Deez Nuts")
-                .checkResult("Gender", "Other")
-                .checkResult("Mobile", "8974590871");
+                .checkResult("Student Name", data.firstName + " " + data.lastName)
+                .checkResult("Gender", data.gender)
+                .checkResult("Mobile", data.userNumber);
 
     }
 
