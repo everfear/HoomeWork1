@@ -18,7 +18,7 @@ public class TestData
             userBirthDay = String.format("%02d", faker.number().numberBetween(1, 31)),
             userBirthMonth = faker.options().option("January", "February", "March", "April",
                     "May", "June", "July", "August", "September", "October", "November", "December"),
-            userBirthYear = String.format("%s",faker.number().numberBetween(1900,2200)),
+            userBirthYear = String.format("%s",faker.number().numberBetween(2000,2200)),
             subject = faker.options().option("Accounting", "Art", "Physics", "Chemistry", "Economics", "English", "Biology"),
             hobby = faker.options().option("Sports", "Reading", "Music"),
             picture = faker.options().option("cat.webp", "cat2.webp"),
