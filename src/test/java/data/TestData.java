@@ -15,7 +15,7 @@ public class TestData
             email = faker.internet().emailAddress(),
             gender = faker.options().option("Male", "Female", "Other"),
             userNumber = faker.phoneNumber().subscriberNumber(10),
-            userBirthDay = String.format("%02d", faker.number().numberBetween(1, 31)),
+            userBirthDay = String.format("%02d", faker.number().numberBetween(1, 28)),
             userBirthMonth = faker.options().option("January", "February", "March", "April",
                     "May", "June", "July", "August", "September", "October", "November", "December"),
             userBirthYear = String.format("%s",faker.number().numberBetween(2000,2200)),
