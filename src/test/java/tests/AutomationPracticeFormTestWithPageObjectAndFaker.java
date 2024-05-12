@@ -1,18 +1,16 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.AutomationPracticeFormTestPageWithFaker;
+import pages.AutomationPracticeFormTestWithFakerPage;
 
-public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase
-{
+public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase {
 
-    AutomationPracticeFormTestPageWithFaker automationPracticeFormTestPage = new AutomationPracticeFormTestPageWithFaker();
+    AutomationPracticeFormTestWithFakerPage automationPracticeFormTestPage = new AutomationPracticeFormTestWithFakerPage();
 
     @Test
-    void fillFormTestWithPageObject()
-    {
+    void fillFormTestWithPageObject() {
 
-                automationPracticeFormTestPage.openPage()
+        automationPracticeFormTestPage.openPage()
 
                 .setFirstName(data.firstName)
                 .setLastName(data.lastName)
@@ -43,8 +41,7 @@ public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase
     }
 
     @Test
-    void OnlyRequiredfillFormTestWithPageObject()
-    {
+    void onlyRequiredfillFormTestWithPageObject() {
 
         automationPracticeFormTestPage.openPage()
 
@@ -62,8 +59,7 @@ public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase
     }
 
     @Test
-    void NegativefillFormTestWithPageObject()
-    {
+    void negativefillFormTestWithPageObject() {
 
         automationPracticeFormTestPage.openPage()
 

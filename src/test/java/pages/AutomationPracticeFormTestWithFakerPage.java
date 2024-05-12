@@ -8,11 +8,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class AutomationPracticeFormTestPageWithFaker
-{
+public class AutomationPracticeFormTestWithFakerPage {
 
-    public AutomationPracticeFormTestPageWithFaker openPage()
-    {
+    public AutomationPracticeFormTestWithFakerPage openPage() {
 
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
@@ -35,55 +33,49 @@ public class AutomationPracticeFormTestPageWithFaker
             setPicture = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             submitClick = $("#submit"),
-            outputTable = $(".table-responsive"),
             userForm = $("#userForm");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     StateComponent stateComponent = new StateComponent();
     CityComponent cityComponent = new CityComponent();
+    OutputTableComponent outputTableComponent = new OutputTableComponent();
 
-    public pages.AutomationPracticeFormTestPageWithFaker setFirstName(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setFirstName(String value) {
 
         firstNameInput.setValue(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setLastName(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setLastName(String value) {
 
         lastNameInput.setValue(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setEmail(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setEmail(String value) {
 
         userEmailInput.setValue(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setGender(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setGender(String value) {
 
         genderInput.$(byText(value)).click();
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setUserNumber(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setUserNumber(String value) {
 
         userNumberInput.setValue(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setDateOfBirth(String day, String month, String year)
-    {
+    public AutomationPracticeFormTestWithFakerPage setDateOfBirth(String day, String month, String year) {
 
         calendarInput.click();
         calendarComponent.setDate(day, month, year);
@@ -91,40 +83,35 @@ public class AutomationPracticeFormTestPageWithFaker
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setSubjects(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setSubjects(String value) {
 
         subjectsInput.setValue(value).pressEnter();
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setHobbies(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setHobbies(String value) {
 
         hobbiesInput.$(byText(value)).click();
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setPicture(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setPicture(String value) {
 
         setPicture.uploadFromClasspath(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setCurrentAddress(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setCurrentAddress(String value) {
 
         addressInput.setValue(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker setState(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setState(String value) {
 
         stateComponent.setState(value);
         return this;
@@ -132,16 +119,14 @@ public class AutomationPracticeFormTestPageWithFaker
     }
 
 
-    public pages.AutomationPracticeFormTestPageWithFaker setCity(String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage setCity(String value) {
 
         cityComponent.setCity(value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker submit()
-    {
+    public AutomationPracticeFormTestWithFakerPage submit() {
 
         submitClick.scrollIntoView(true);
         submitClick.click();
@@ -149,23 +134,20 @@ public class AutomationPracticeFormTestPageWithFaker
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker checkResult(String key, String value)
-    {
+    public AutomationPracticeFormTestWithFakerPage checkResult(String key, String value) {
 
-        outputTable.$(byText(key)).parent().shouldHave(text(value));
+        outputTableComponent.checkResult(key, value);
         return this;
 
     }
 
-    public pages.AutomationPracticeFormTestPageWithFaker checkValidation()
-    {
+    public AutomationPracticeFormTestWithFakerPage checkValidation() {
         //NegativefillFormTestWithPageObject
 
         userForm.shouldHave(cssClass("was-validated"));
-        firstNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
-        lastNameInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
-        userNumberInput.shouldHave(cssValue("border-color","rgb(220, 53, 69)"));
-        outputTable.shouldNotBe(visible);
+        firstNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        lastNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        userNumberInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         return this;
 
     }
