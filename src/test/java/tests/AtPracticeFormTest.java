@@ -13,7 +13,7 @@ public class AtPracticeFormTest extends TestBase {
 
     @Test
     @DisplayName("Регистрация с заполнением всех полей")
-    void fillFormTestWithPageObject() {
+    void fillFormTest() {
 
         step("Открываем страничку регистрации", () -> {
 
@@ -58,7 +58,7 @@ public class AtPracticeFormTest extends TestBase {
 
     @Test
     @DisplayName("Регистрация с заполнением только обязательных полей")
-    void onlyRequiredfillFormTestWithPageObject() {
+    void onlyRequiredfillFormTest() {
 
         step("Открываем страничку регистрации", () -> {
 
@@ -88,7 +88,7 @@ public class AtPracticeFormTest extends TestBase {
 
     @Test
     @DisplayName("Неуспешная регистрация, обязательные поля пустые")
-    void negativefillFormTestWithPageObject() {
+    void negativefillFormTest() {
 
         step("Открываем страничку регистрации", () -> {
 
