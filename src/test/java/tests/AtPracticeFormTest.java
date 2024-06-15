@@ -2,14 +2,14 @@ package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.AutomationPracticeFormTestWithFakerPage;
+import pages.AtPracticeFormPage;
 
 import static io.qameta.allure.Allure.step;
 
 
-public class AutomationPracticeFormTestWithPageObjectAndFaker extends TestBase {
+public class AtPracticeFormTest extends TestBase {
 
-    AutomationPracticeFormTestWithFakerPage automationPracticeFormTestPage = new AutomationPracticeFormTestWithFakerPage();
+    AtPracticeFormPage automationPracticeFormTestPage = new AtPracticeFormPage();
 
     @Test
     @DisplayName("Регистрация с заполнением всех полей")
