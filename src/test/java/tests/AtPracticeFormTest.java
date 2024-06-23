@@ -1,12 +1,13 @@
 package tests;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.AtPracticeFormPage;
 
 import static io.qameta.allure.Allure.step;
 
-
+@Tag("form")
 public class AtPracticeFormTest extends TestBase {
 
     AtPracticeFormPage automationPracticeFormTestPage = new AtPracticeFormPage();
