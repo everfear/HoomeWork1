@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "Tests Report",
+    "environment": "env",
+    "comment": "some comment",
+    "reportLink": "https://jenkins.autotests.cloud/job/027-korolserge-AtPracticeForm/",
+    "language": "en",
+    "allureFolder": "C:/Users/serge/AppData/Local/Temp/28785925436389566/allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6879990736:AAHB-54cNjmfloK99Hc1UZQSpyOpPAUnHc4",
+    "chat": "-4519299813",
+    "replyTo": ""
+  }
+}
